@@ -1,0 +1,31 @@
+{
+    "scoring": {
+      "firstHalf": {
+        "groupStage": 3,
+        "round16": 4,
+        "round8": 5,
+        "round4": 6,
+        "final": 7
+      },
+      "secondHalf": {
+        "groupStage": 3,
+        "round16": 4,
+        "round8": 5,
+        "round4": 6,
+        "final": 7
+      },
+      "bothHalves": {
+        "groupStage": 2,
+        "round16": 3,
+        "round8": 4,
+        "round4": 5,
+        "final": 6
+      },
+      "finalResult": {
+        "firstPlace": 13,
+        "secondPlace": 11,
+        "thirdPlace": 7,
+        "allThree": 15
+      }
+    }
+  }

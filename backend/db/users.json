@@ -1,0 +1,17 @@
+{
+    "users":[
+  {
+    "id": 0,
+    "firstName": "SwpStkAppAdmin",
+    "lastName": "SwpStkAppAdmin",
+    "roles": ["Admin"],
+    "userId":  "admin",
+    "password":  "$jSimF^8#@p,jS",
+    "phone": null,
+    "points":  null,
+    "active":  true,
+    "bets": null
+  }
+  ]
+  }
+  
