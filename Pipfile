@@ -9,6 +9,7 @@ name = "pypi"
 flask = "*"
 marshmallow = "*"
 pymongo = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "2.7"
