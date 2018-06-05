@@ -7,14 +7,16 @@ from pprint import pprint
 from flask import Flask, jsonify, request
 from model.user import User, UserSchema
 from model.bet import Bet, BetSchema
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
 data_file = os.path.join(working_dir, 'data.json')
 
-headers = {'Content-Type': 'application/json; charset=utf-8'}
+headers = {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*'}
 not_found_resp = {"message": "resource not found"}
 unexpected_resp = {"message": "unexpected error occurred"}
 
@@ -40,6 +42,7 @@ def get_users():
 @app.route("/signin", methods=['POST'])
 def authenticate():
   creds = request.get_json()
+  print "creds: " + str(creds)
   user = json.loads(get_user_by_username(creds['userName']))
   resp = {"status": "unauthorized", "message": "Authentication failed, username/password incorrect"}
   if user['password'] == creds['password']:
