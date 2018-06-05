@@ -1,0 +1,23 @@
+[
+    {
+        "matchId": 64,
+        "type": "winner",
+        "homeTeam": 61,
+        "awayTeam": 62,
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-15T18:00:00+03:00",
+        "stadium": 1,
+        "channels": [
+            3,
+            4
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 7
+    }
+]

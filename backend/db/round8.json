@@ -1,0 +1,82 @@
+[
+    {
+        "matchId": 57,
+        "type": "winner",
+        "homeTeam": 49,
+        "awayTeam": 50,
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-06T17:00:00+03:00",
+        "stadium": 6,
+        "channels": [
+            3
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 5
+    },
+    {
+        "matchId": 58,
+        "type": "winner",
+        "homeTeam": 53,
+        "awayTeam": 54,
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-06T21:00:00+03:00",
+        "stadium": 5,
+        "channels": [
+            3
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 5
+    },
+    {
+        "matchId": 59,
+        "type": "winner",
+        "homeTeam": 51,
+        "awayTeam": 52,
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-07T21:00:00+03:00",
+        "stadium": 11,
+        "channels": [
+            4
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 5
+    },
+    {
+        "matchId": 60,
+        "type": "winner",
+        "homeTeam": 55,
+        "awayTeam": 56,
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-07T18:00:00+04:00",
+        "stadium": 7,
+        "channels": [
+            4
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 5
+    }
+]

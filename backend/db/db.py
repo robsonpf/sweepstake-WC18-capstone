@@ -1,3 +1,4 @@
+import pymongo
 from pymongo import MongoClient
 from bson.json_util import dumps
 
@@ -14,11 +15,17 @@ def insert_user(user):
 def get_user_by_username(username):
   return dumps(db['users'].find_one({"userName": username}))
 
-def find_all_groups():
-  return dumps(db['groups'].find({}))
+def find_group_matches_by_date():
+  return dumps(db['groups'].find({}).sort('date',pymongo.ASCENDING))
 
-def find_all_knockouts():
-  return dumps(db['knockouts'].find({}))
+def find_round16():
+  return dumps(db['round16'].find({}).sort('date',pymongo.ASCENDING))
+
+def find_round8():
+  return dumps(db['round8'].find({}).sort('date',pymongo.ASCENDING))
+
+def find_round4():
+  return dumps(db['round4'].find({}).sort('date',pymongo.ASCENDING))
 
 def find_all_rewards():
   return dumps(db['rewards'].find({}))

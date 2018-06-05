@@ -20,4 +20,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Bundle artifact
+*.jsbundle
+
+# python
+*.pyc
 /frontend/node_modules/*
