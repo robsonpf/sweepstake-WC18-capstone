@@ -1,3 +1,3 @@
-module.exports = {
-    extends: ['react-app']
-};
+// module.exports = {
+//     extends: ['react-app']
+// };

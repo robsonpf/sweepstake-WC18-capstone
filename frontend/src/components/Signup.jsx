@@ -7,9 +7,13 @@ import {
   Container,
   Row,
   Col,
+  Alert,
   Input
-} from 'reactstrap'
+} from 'reactstrap';
+
 import TopNav from './TopNav';
+
+const navbar = {backgroundColor: '#283e4a'}
 
 export class Signup extends Component {
   render() {
@@ -27,21 +31,43 @@ export class Signup extends Component {
           >
             <Form>
               <FormGroup>
-                <Label for="username">Username</Label>
+                <Label for="firstName">First name</Label>
                 <Input
                   type="text"
-                  name="username"
-                  id="username-field"
-                  placeholder="username"
+                  name="firstName"
+                  id="firstname-field"
+                  placeholder="first name"
                 />
               </FormGroup>
+
               <FormGroup>
-                <Label for="email">Email</Label>
+                <Label for="lastName">Last name</Label>
                 <Input
-                  type="email"
+                  type="text"
+                  name="lastName"
+                  id="lastname-field"
+                  placeholder="last name"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="userName">Username</Label>
+                <Input
+                  type="test"
                   name="email"
-                  id="email-field"
-                  placeholder="email"
+                  id="userName"
+                  placeholder="example@gmail.com"
+                />
+              </FormGroup>
+
+
+              <FormGroup>
+                <Label for="phone">Phone Number</Label>
+                <Input
+                  type="phone"
+                  name="phone"
+                  id="phone-field"
+                  placeholder="phone"
                 />
               </FormGroup>
 

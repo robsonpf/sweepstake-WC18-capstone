@@ -10,6 +10,7 @@ flask = "*"
 marshmallow = "*"
 pymongo = "*"
 pyjwt = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "2.7"
