@@ -64,7 +64,7 @@ class Login extends Component {
           >
             <Form onSubmit={this.getLogin}>
               <FormGroup>
-                <Label for="userName-field">Email</Label>
+                <Label for="userName-field">Username</Label>
                 <Input
                   type="userName"
                   name="userName"

@@ -4,14 +4,15 @@ export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED';
 
 const BASE_URL = 'http://localhost:5000';
 
-export const userSignup = (newUser, history) => {
-  retyrn async (dispatch) => {
+export const userSignup = (firstName, lastName, userName, phone, password, history) => {
+  return async (dispatch) => {
     try {
       dispatch({ type: USER_SIGNUP_PENDING })
+      console.log()
       let response = await fetch(`${BASE_URL}/signup`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(newUser)
+        body: JSON.stringify({"firstName": firstName, "lastName": lastName, "userName": userName, "phone": phone, "password": password})
       })
       let isSignedup = await response.json()
       dispatch({

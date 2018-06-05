@@ -56,6 +56,7 @@ def authenticate():
 @app.route("/signup", methods=['POST'])
 def create_user():
   user = UserSchema().load(request.get_json())
+  print "User: ", user
   return insert_user(user), 201, headers
 
 @app.route("/tvchannels")
