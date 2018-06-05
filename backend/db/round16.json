@@ -1,0 +1,168 @@
+[
+    {
+        "matchId": 49,
+        "type": "qualified",
+        "homeTeam": "winner_a",
+        "awayTeam": "runner_b",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-06-30T17:00:00+03:00",
+        "stadium": 11,
+        "channels": [
+            4
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 50,
+        "type": "qualified",
+        "homeTeam": "winner_c",
+        "awayTeam": "runner_d",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-06-30T21:00:00+03:00",
+        "stadium": 5,
+        "channels": [
+            4,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 51,
+        "type": "qualified",
+        "homeTeam": "winner_b",
+        "awayTeam": "runner_a",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-01T17:00:00+03:00",
+        "stadium": 1,
+        "channels": [
+            3
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 52,
+        "type": "qualified",
+        "homeTeam": "winner_d",
+        "awayTeam": "runner_c",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-01T21:00:00+03:00",
+        "stadium": 6,
+        "channels": [
+            4,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 53,
+        "type": "qualified",
+        "homeTeam": "winner_e",
+        "awayTeam": "runner_f",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-02T18:00:00+04:00",
+        "stadium": 7,
+        "channels": [
+            3,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 54,
+        "type": "qualified",
+        "homeTeam": "winner_g",
+        "awayTeam": "runner_h",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-02T21:00:00+03:00",
+        "stadium": 10,
+        "channels": [
+            3,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 55,
+        "type": "qualified",
+        "homeTeam": "winner_f",
+        "awayTeam": "runner_e",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-03T17:00:00+03:00",
+        "stadium": 3,
+        "channels": [
+            4,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    },
+    {
+        "matchId": 56,
+        "type": "qualified",
+        "homeTeam": "winner_h",
+        "awayTeam": "runner_g",
+        "firstHalfGoals": null,
+        "secondHalfGoals": null,
+        "finalResult": null,
+        "home_penalty": null,
+        "away_penalty": null,
+        "winner": null,
+        "date": "2018-07-03T21:00:00+03:00",
+        "stadium": 2,
+        "channels": [
+            3,
+            6
+        ],
+        "started": false,
+        "finished": false,
+        "matchday": 4
+    }
+]
