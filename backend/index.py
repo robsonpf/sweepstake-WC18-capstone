@@ -42,7 +42,6 @@ def get_users():
 @app.route("/signin", methods=['POST'])
 def authenticate():
   creds = request.get_json()
-  print "creds: " + str(creds)
   user = json.loads(get_user_by_username(creds['userName']))
   resp = {"status": "unauthorized", "message": "Authentication failed, username/password incorrect"}
   if user['password'] == creds['password']:
