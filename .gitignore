@@ -26,3 +26,6 @@ yarn-error.log*
 # python
 *.pyc
 /frontend/node_modules/*
+
+# VS Code
+.vscode/*
