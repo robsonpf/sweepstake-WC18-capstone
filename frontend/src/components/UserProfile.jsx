@@ -11,10 +11,10 @@ const UserProfile = (props) => {
   console.log('up props', props)
   return (
     <div>
+      <TopNav />
       <Container>
-        <TopNav />
         <Row>
-          <Col sm={{ size: 6, offset: 3 }}>
+          <Col style={{ marginTop: '20vh', marginBottom: '10vh' }} sm={{ size: 6, offset: 3 }}>
             <h1 className="text-center">User Profile Page</h1>
           </Col>
         </Row>
@@ -23,10 +23,10 @@ const UserProfile = (props) => {
             <img src="http://via.placeholder.com/350x450" alt="profile" />
           </Col>
           <Col>
-            {/* <h3>First name: {props.user.firstName}</h3>
-              <h3>Last name: {props.user.lastName}</h3>
-              <h3>Username: {props.user.userName}</h3>
-            <h3>Phone: {props.user.phone}</h3> */}
+            <h3>First name: {props.user.firstName}</h3>
+            <h3>Last name: {props.user.lastName}</h3>
+            <h3>Username: {props.user.userName}</h3>
+            <h3>Phone: {props.user.phone}</h3>
           </Col>
         </Row>
       </Container>
@@ -34,9 +34,10 @@ const UserProfile = (props) => {
   )
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    user: state.user
+    user: state.auth.user
   }
 }
 

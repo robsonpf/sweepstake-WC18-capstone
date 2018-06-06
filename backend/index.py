@@ -46,7 +46,7 @@ def authenticate():
   user = json.loads(get_user_by_username(creds['userName']))
   resp = {"status": "unauthorized", "message": "Authentication failed, username/password incorrect"}
   if user['password'] == creds['password']:
-    payload = {"firstName": user['firstName'], "lastName": user['lastName'], "userName": user['userName'], "iss": "https://swpstkapp.org", "iat": int(time.time()), "exp": int(time.time() + 60*60*60)}
+    payload = {"firstName": user['firstName'], "lastName": user['lastName'], "phone": user['phone'], "userName": user['userName'], "iss": "https://swpstkapp.org", "iat": int(time.time()), "exp": int(time.time() + 60*60*60) }
     encoded_jwt = jwt.encode(payload, '8asndasASK893Hulo789jhsdfDASd23AS', algorithm='HS256')
     resp = {"status": "ok", "access_token": encoded_jwt}
     return jsonify(resp), 200, headers

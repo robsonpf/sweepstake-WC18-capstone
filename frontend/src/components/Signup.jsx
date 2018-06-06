@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { userSignup } from '../redux/actions/signup';
+import { userSignup } from '../redux/actions/auth';
 import TopNav from './TopNav';
 
 // const navbar = {backgroundColor: '#283e4a'}
@@ -59,7 +59,7 @@ export class Signup extends Component {
     return (
       <Container className="main-wrapper">
         <TopNav />
-        <Row style={{ marginTop: '10vh', marginBottom: '10vh' }}>
+        <Row style={{ marginTop: '30vh', marginBottom: '10vh' }}>
           <Col
             lg={{ size: 6, offset: 3 }}
             style={{
@@ -175,8 +175,8 @@ export class Signup extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    message: state.signup.message,
-    showSignupError: state.signup.showSignupError
+    message: state.auth.message,
+    showSignupError: state.auth.showSignupError
   }
 }
 

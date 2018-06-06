@@ -9,11 +9,12 @@ db = client['swpstkapp']
 def find_all_users():
   return dumps(db['users'].find({}))
 
+# hash the password before you insert the user
 def insert_user(user):
   return dumps(db['users'].insert(user))
 
 def get_user_by_username(username):
-  return dumps(db['users'].find_one({"userName": username}))
+    return dumps(db['users'].find_one({"userName": username}))
 
 def find_group_matches_by_date():
   return dumps(db['groups'].find({}).sort('date',pymongo.ASCENDING))

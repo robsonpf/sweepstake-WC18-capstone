@@ -14,10 +14,20 @@ import {
   Label
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
   const navbar = {backgroundColor: '#2475b2'}
 
 class TopNav extends Component {
+  state = {
+    isOpen: false
+  };
+
+  // toggle = () => {
+  //   localStoreage.removeItem("")
+  // }
+
 
   render() {
     return (
@@ -30,11 +40,8 @@ class TopNav extends Component {
         >
           <Link to="/">
             <NavbarBrand href="/">
-              Sweepstake FIFA WORLD CUP 2018
+              Sweepstake RUSSIA 18
             </NavbarBrand>
-            {/* <Label as='a' size="huge">
-              Sweepstake FIFA WORLD CUP 2018
-            </Label> */}
           </Link>
           <NavbarToggler />
           <Collapse navbar>
@@ -47,6 +54,12 @@ class TopNav extends Component {
               </NavItem>
               <NavItem>
                 <NavLink href="/components/">Groups</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/signup">Sign Up</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/login">Log In</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -123,5 +136,11 @@ class TopNav extends Component {
     );
   }
 }
+
+// const mapStateToProps = (state, props) => {
+//   return {
+//
+//   }
+// }
 
 export default TopNav;
