@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export FLASK_APP=./backend/index.py
+export FLASK_APP=./index.py
 
 source $(pipenv --venv)/bin/activate
 
