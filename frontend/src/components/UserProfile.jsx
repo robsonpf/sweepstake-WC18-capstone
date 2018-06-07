@@ -11,7 +11,7 @@ const UserProfile = (props) => {
   console.log('up props', props)
   return (
     <div>
-      <TopNav />
+      <TopNav history={props.history}/>
       <Container>
         <Row>
           <Col style={{ marginTop: '20vh', marginBottom: '10vh' }} sm={{ size: 6, offset: 3 }}>
