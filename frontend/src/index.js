@@ -6,8 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootswatch/dist/materia/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
 import store from './redux/store';
+import { fetchToken } from './redux/actions/auth';
 
 const newStore = store();
+
+newStore.dispatch(fetchToken())
 
 ReactDOM.render(
   <Provider store={newStore}>
