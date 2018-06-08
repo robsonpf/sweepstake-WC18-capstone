@@ -16,7 +16,7 @@ import {
 // } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { userLogin } from '../redux/actions/login';
+import { userLogin } from '../redux/actions/auth';
 import TopNav from './TopNav';
 
 class Login extends Component {
@@ -31,17 +31,6 @@ class Login extends Component {
     console.log("state", this.state, "props", this.props);
     this.props.userLogin(this.state, this.props.history)
   }
-
-  // getLogin = async (e) => {
-  //   e.preventDefault()
-  //
-  //   if (this.state.username && this.state.password) {
-  //     this.props.checkLogin({
-  //       username: this.state.username,
-  //       password: this.state.password
-  //     }, this.props.history);
-  //   }
-  // }
 
   render() {
     console.log("this.props ====>",this.props);
@@ -64,7 +53,7 @@ class Login extends Component {
           >
             <Form onSubmit={this.getLogin}>
               <FormGroup>
-                <Label for="userName-field">Email</Label>
+                <Label for="userName-field">Username</Label>
                 <Input
                   type="userName"
                   name="userName"
@@ -103,14 +92,13 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    showLoginError: state.login.showLoginError
+    showLoginError: state.auth.showLoginError
   }
 }
 
-
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     userLogin: bindActionCreators(userLogin, dispatch)
   }

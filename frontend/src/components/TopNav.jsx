@@ -14,10 +14,23 @@ import {
   Label
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { userLogout } from '../redux/actions/auth';
 
   const navbar = {backgroundColor: '#2475b2'}
 
 class TopNav extends Component {
+  state = {
+    isOpen: false
+  };
+
+
+  handleLogout = (e) => {
+    e.preventDefault()
+    console.log("this.props", this.props)
+    this.props.userLogout(this.props.history)
+  }
 
   render() {
     return (
@@ -30,93 +43,47 @@ class TopNav extends Component {
         >
           <Link to="/">
             <NavbarBrand href="/">
-              Sweepstake FIFA WORLD CUP 2018
+              Sweepstake RUSSIA 18
             </NavbarBrand>
-            {/* <Label as='a' size="huge">
-              Sweepstake FIFA WORLD CUP 2018
-            </Label> */}
           </Link>
+
           <NavbarToggler />
           <Collapse navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Matches</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">Teams</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">Groups</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Filter By Team
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Argentina
-                  </DropdownItem>
-                  <DropdownItem>
-                    Australia
-                  </DropdownItem>
-                  <DropdownItem>
-                    Belgium
-                  </DropdownItem>
-                  <DropdownItem>
-                    Brazil
-                  </DropdownItem>
-                  <DropdownItem>
-                    Colombia
-                  </DropdownItem>
-                  <DropdownItem>
-                    Costa Rica
-                  </DropdownItem>
-                  <DropdownItem>
-                    Croatia
-                  </DropdownItem>
-                  <DropdownItem>
-                    Denamark
-                  </DropdownItem>
-                  <DropdownItem>
-                    Egypt
-                  </DropdownItem>
-                  <DropdownItem>
-                    England
-                  </DropdownItem>
-                  <DropdownItem>
-                    France
-                  </DropdownItem>
-                  <DropdownItem>
-                    Germany
-                  </DropdownItem>
-                  <DropdownItem>
-                    Iceland
-                  </DropdownItem>
-                  <DropdownItem>
-                    IR Iran
-                  </DropdownItem>
-                  <DropdownItem>
-                    Japan
-                  </DropdownItem>
-                  <DropdownItem>
-                    Korea Republic
-                  </DropdownItem>
-                  <DropdownItem>
-                    Mexico
-                  </DropdownItem>
-                  <DropdownItem>
-                    Morocco
-                  </DropdownItem>
-                  <DropdownItem>
-                    Nigeria
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
+            {/* <Nav className="ml-auto" navbar>
+            </Nav> */}
+            {!this.props.loggedIn ? (
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/signup">Sign Up</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/login">Log In</NavLink>
+                </NavItem>
+              </Nav>
+            ) : (
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/profile/">Welcome,{this.props.user.firstName}!</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/matches/">Matches</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/components/">Teams</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/components/">Groups</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="/login"
+                    onClick={this.handleLogout}
+                  >
+                    Log Out
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            )}
           </Collapse>
         </Navbar>
       </div>
@@ -124,4 +91,16 @@ class TopNav extends Component {
   }
 }
 
-export default TopNav;
+const mapStateToProps = (state, props) => {
+  return {
+    token: state.auth,
+    loggedIn: state.auth.loggedIn,
+    user: state.auth.user
+    // exp: state.token.exp,
+    // iat: state.token.iat,
+  }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({ userLogout }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopNav);

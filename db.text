@@ -1,0 +1,11 @@
+mongoimport --host localhost --db swpstkapp --collection stadiums --type json --file=db/stadiums.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection scoring --type json --file=db/scoring.json
+mongoimport --host localhost --db swpstkapp --collection rewards --type json --file=db/rewards.json
+mongoimport --host localhost --db swpstkapp --collection users --type json --file=db/users.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection teams --type json --file=db/teams.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection groups --type json --file=db/groups.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection round16 --type json --file=db/round16.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection round8 --type json --file=db/round8.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection round4 --type json --file=db/round4.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection round2loser --type json --file=db/round2loser.json --jsonArray
+mongoimport --host localhost --db swpstkapp --collection final --type json --file=db/final.json --jsonArray
