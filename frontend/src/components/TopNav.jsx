@@ -7,11 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Label
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -41,12 +36,6 @@ class TopNav extends Component {
           expand="md"
           className="fixed-top"
         >
-          <Link to="/">
-            <NavbarBrand href="/">
-              Sweepstake RUSSIA 18
-            </NavbarBrand>
-          </Link>
-
           <NavbarToggler />
           <Collapse navbar>
             {/* <Nav className="ml-auto" navbar>
