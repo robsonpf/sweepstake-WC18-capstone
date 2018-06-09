@@ -2,7 +2,7 @@ import json
 import os
 import jwt
 import time
-from db.db import find_all_users, insert_user, get_user_by_username, find_round16, find_round8, find_round4, find_group_matches_by_date, find_all_rewards, find_all_scoring, find_all_stadiums, find_all_teams
+from db.db import find_all_users, insert_user, get_user_by_username, find_round16, find_round8, find_round4, find_group_matches_by_date, find_all_rewards, find_all_scoring, find_all_stadiums, find_all_teams, place_user_bet
 from pprint import pprint
 from flask import Flask, jsonify, request
 from model.user import User, UserSchema
@@ -11,17 +11,57 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-
+ENC_SECRET = '8asndasASK893Hulo789jhsdfDASd23AS'
 working_dir = os.path.dirname(os.path.abspath(__file__))
-
 data_file = os.path.join(working_dir, 'data.json')
-
 headers = {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*'}
 not_found_resp = {"message": "resource not found"}
 unexpected_resp = {"message": "unexpected error occurred"}
+groups_matches = 48
+round16_matches = 56
+round8_matches = 60
+round4_matches = 62
+round2_loser = 63
+final = 64
+
 
 with open(data_file) as f:
   data = json.load(f)
+
+@app.route("/bet", methods=['POST'])
+def place_bet():
+  try:
+    auth_header = request.headers.get('Authorization')
+    print "Auth Header: ", auth_header
+    enc_token = auth_header.replace("Bearer ", "")
+    print "enc_token: ", enc_token
+    dec_token = jwt.decode(enc_token, ENC_SECRET, algorithm='HS256')
+    print "dec_token: ", dec_token
+    userName = dec_token['userName']
+    print "userName: ", userName
+    user = json.loads(get_user_by_username(userName))
+    print "User: ", user
+    bet = request.get_json()
+    print "Bet: ", bet
+    userBets = user['bets']
+    print "userBets", userBets
+    if userBets == None:
+      user['bets'] = []
+    for b in user['bets']:
+      if b['matchId'] == bet['matchId']:
+        return jsonify({"message": "bet already made for this match"}), 400, headers
+    # TODO: Validate if match has bets closed (match already happened or is about to begin)
+    user['bets'].append(bet)
+    print "User: ", user
+    result = json.loads(place_user_bet(user))
+    print "Result: ", result
+    if result['userName'] == userName:
+      return '', 201, headers
+    else:
+      return jsonify(unexpected_resp), 500, headers
+  except Exception as e:
+    print "Exception e: ", e
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/stadiums")
 def get_matches():
@@ -32,7 +72,7 @@ def get_matches():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers  
+    return jsonify(unexpected_resp), 500, headers    
 
 @app.route("/scoring")
 def get_scoring():
@@ -76,7 +116,7 @@ def authenticate():
     resp = {"status": "unauthorized", "message": "Authentication failed, username/password incorrect"}
     if user['password'] == creds['password']:
       payload = {"firstName": user['firstName'], "lastName": user['lastName'], "phone": user['phone'], "userName": user['userName'], "iss": "https://swpstkapp.org", "iat": int(time.time()), "exp": int(time.time() + 60*60*60) }
-      encoded_jwt = jwt.encode(payload, '8asndasASK893Hulo789jhsdfDASd23AS', algorithm='HS256')
+      encoded_jwt = jwt.encode(payload, ENC_SECRET, algorithm='HS256')
       resp = {"status": "ok", "access_token": encoded_jwt}
       return jsonify(resp), 200, headers
     else:

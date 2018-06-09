@@ -1,6 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 from bson.json_util import dumps
+from bson.objectid import ObjectId
 
 uri = "mongodb://swpstkapp:s1w2p3s4t5k6@localhost/swpstkapp?authSource=admin"
 client = MongoClient();
@@ -12,6 +13,15 @@ def find_all_users():
 # hash the password before you insert the user
 def insert_user(user):
   return dumps(db['users'].insert(user))
+
+def place_user_bet(user):
+  # return dumps(db['users'].update({user['_id']} , {"$set": user}))
+  uid = user['_id']['$oid']
+  print "_id: ", uid
+  print "user: ", dumps(db['users'].find({"_id": ObjectId(uid)}))
+  bet = user['bets']
+  print "Bet to update: ", bet
+  return dumps(db['users'].find_and_modify(query={"_id": ObjectId(uid)}, update={"$set": {"bets": user['bets']}}))
 
 def get_user_by_username(username):
     return dumps(db['users'].find_one({"userName": username}))
