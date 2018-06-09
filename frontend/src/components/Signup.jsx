@@ -57,7 +57,7 @@ export class Signup extends Component {
     return (
       // <div style={divStyle}>
 
-        <Container style={divStyle} className="main-wrapper">
+        <Container className="main-wrapper">
           <TopNav />
           <Row style={{ marginTop: '30vh', marginBottom: '10vh' }}>
             <Col
@@ -174,9 +174,9 @@ export class Signup extends Component {
   }
 }
 
-const divStyle = {
-  background: "url('http://media.contentapi.ea.com/content/www-easports/en_US/fifa/news/2018/fifa-18-world-cup-update-game-modes/_jcr_content/imageShare.img.jpg')"
-}
+// const divStyle = {
+//   background: "url('http://media.contentapi.ea.com/content/www-easports/en_US/fifa/news/2018/fifa-18-world-cup-update-game-modes/_jcr_content/imageShare.img.jpg')"
+// }
 
 
 const mapStateToProps = (state, props) => {
