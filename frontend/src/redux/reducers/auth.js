@@ -38,23 +38,23 @@ let initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case USER_SIGNUP_PENDING:
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     case USER_SIGNUP_SUCCESS:
-      return { ...state, isLoading: false, showSignupError: false, message: "USER_SIGNUP_SUCCESS", ...action.payload }
+      return { ...state, isLoading: false, showSignupError: false, message: "USER_SIGNUP_SUCCESS", ...action.payload };
     case USER_SIGNUP_FAILED:
-      return { ...state, isLoading: false, showSignupError: true, message: action.payload }
+      return { ...state, isLoading: false, showSignupError: true, message: action.payload };
     case USER_LOGIN_PENDING:
       return { ...state, isLoading: true }
     case USER_LOGIN_SUCCESS:
-      return { ...state, isLoading: false, loggedIn: true, ...getInitialState(action.payload.access_token) }
+      return { ...state, isLoading: false, loggedIn: true, ...getInitialState(action.payload.access_token) };
     case USER_LOGIN_FAILED:
-      return { ...state, isLoading: false, showLoginError: true, ...action.payload }
+      return { ...state, isLoading: false, showLoginError: true, ...action.payload };
     case USER_LOGOUT_SUCCESS:
-      return state
+      return state;
     case FETCH_TOKEN_SUCCESS:
-      return { ...state, isLoading: false, loggedIn: true, ...getInitialState(action.payload) }
+      return { ...state, isLoading: false, loggedIn: true, ...getInitialState(action.payload) };
     case FETCH_TOKEN_FAILED:
-      return { ...state, ...action.payload }
+      return { ...state, ...action.payload };
     default:
       return state;
   }
