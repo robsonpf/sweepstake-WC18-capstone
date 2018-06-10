@@ -22,6 +22,11 @@ def place_user_bet(user):
   print "Bet to update: ", bet
   return dumps(db['users'].find_and_modify(query={"_id": ObjectId(uid)}, update={"$set": {"bets": user['bets']}}))
 
+#  {u'winner': 1, u'started': True, u'homeTeam': 1, u'matchId': 1, u'finalResult': [2, 1], u'awayTeam': 2, u'finished': True}
+def set_match_result(match, phase):
+  match_id = match['matchId']
+  return dumps(db[phase].find_and_modify(query={"matchId": match_id}, update={"$set": match}))
+
 def get_user_by_username(username):
     return dumps(db['users'].find_one({"userName": username}))
 

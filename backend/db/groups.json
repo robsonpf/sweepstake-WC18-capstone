@@ -8,6 +8,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-14T18:00:00+03:00",
     "stadium": 1,
     "channels": [
@@ -27,6 +28,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-15T17:00:00+05:00",
     "stadium": 12,
     "channels": [
@@ -46,6 +48,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-19T21:00:00+03:00",
     "stadium": 3,
     "channels": [
@@ -65,6 +68,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-20T18:00:00+03:00",
     "stadium": 10,
     "channels": [
@@ -84,6 +88,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-25T18:00:00+04:00",
     "stadium": 7,
     "channels": [
@@ -103,6 +108,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-25T17:00:00+03:00",
     "stadium": 8,
     "channels": [
@@ -122,6 +128,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-15T21:00:00+03:00",
     "stadium": 11,
     "channels": [
@@ -141,6 +148,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-15T18:00:00+03:00",
     "stadium": 3,
     "channels": [
@@ -160,6 +168,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-20T15:00:00+03:00",
     "stadium": 1,
     "channels": [
@@ -179,6 +188,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-20T21:00:00+03:00",
     "stadium": 5,
     "channels": [
@@ -198,6 +208,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-25T21:00:00+03:00",
     "stadium": 9,
     "channels": [
@@ -217,6 +228,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-25T20:00:00+02:00",
     "stadium": 4,
     "channels": [
@@ -236,6 +248,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-16T13:00:00+03:00",
     "stadium": 5,
     "channels": [
@@ -255,6 +268,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-16T19:00:00+03:00",
     "stadium": 9,
     "channels": [
@@ -274,6 +288,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-21T20:00:00+05:00",
     "stadium": 12,
     "channels": [
@@ -293,6 +308,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-21T16:00:00+04:00",
     "stadium": 7,
     "channels": [
@@ -312,6 +328,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-26T17:00:00+03:00",
     "stadium": 1,
     "channels": [
@@ -331,6 +348,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-26T17:00:00+02:00",
     "stadium": 11,
     "channels": [
@@ -350,6 +368,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-16T16:00:00+03:00",
     "stadium": 2,
     "channels": [
@@ -369,6 +388,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-16T21:00:00+02:00",
     "stadium": 4,
     "channels": [
@@ -388,6 +408,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-21T21:00:00+03:00",
     "stadium": 6,
     "channels": [
@@ -407,6 +428,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-22T18:00:00+03:00",
     "stadium": 8,
     "channels": [
@@ -426,6 +448,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-26T21:00:00+03:00",
     "stadium": 3,
     "channels": [
@@ -445,6 +468,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-26T21:00:00+03:00",
     "stadium": 10,
     "channels": [
@@ -464,6 +488,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-17T21:00:00+03:00",
     "stadium": 10,
     "channels": [
@@ -483,6 +508,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-17T16:00:00+04:00",
     "stadium": 7,
     "channels": [
@@ -502,6 +528,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-22T15:00:00+03:00",
     "stadium": 3,
     "channels": [
@@ -521,6 +548,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-22T20:00:00+02:00",
     "stadium": 4,
     "channels": [
@@ -540,6 +568,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-27T21:00:00+03:00",
     "stadium": 2,
     "channels": [
@@ -559,6 +588,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-27T21:00:00+03:00",
     "stadium": 6,
     "channels": [
@@ -578,6 +608,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-17T18:00:00+03:00",
     "stadium": 1,
     "channels": [
@@ -597,6 +628,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-18T15:00:00+03:00",
     "stadium": 6,
     "channels": [
@@ -616,6 +648,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-23T21:00:00+03:00",
     "stadium": 11,
     "channels": [
@@ -635,6 +668,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-23T18:00:00+03:00",
     "stadium": 10,
     "channels": [
@@ -654,6 +688,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-27T17:00:00+03:00",
     "stadium": 5,
     "channels": [
@@ -673,6 +708,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-27T19:00:00+05:00",
     "stadium": 12,
     "channels": [
@@ -692,6 +728,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-18T18:00:00+03:00",
     "stadium": 11,
     "channels": [
@@ -711,6 +748,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-18T21:00:00+03:00",
     "stadium": 8,
     "channels": [
@@ -730,6 +768,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-23T15:00:00+03:00",
     "stadium": 2,
     "channels": [
@@ -749,6 +788,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-24T15:00:00+03:00",
     "stadium": 6,
     "channels": [
@@ -768,6 +808,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-28T20:00:00+02:00",
     "stadium": 4,
     "channels": [
@@ -787,6 +828,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-28T21:00:00+03:00",
     "stadium": 9,
     "channels": [
@@ -806,6 +848,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-19T18:00:00+03:00",
     "stadium": 2,
     "channels": [
@@ -825,6 +868,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-19T15:00:00+03:00",
     "stadium": 9,
     "channels": [
@@ -844,6 +888,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-24T20:00:00+05:00",
     "stadium": 5,
     "channels": [
@@ -863,6 +908,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-24T21:00:00+03:00",
     "stadium": 12,
     "channels": [
@@ -882,6 +928,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-28T17:00:00+03:00",
     "stadium": 8,
     "channels": [
@@ -901,6 +948,7 @@
     "firstHalfGoals": null,
     "secondHalfGoals": null,
     "finalResult": null,
+		"winner": null,
     "date": "2018-06-28T18:00:00+04:00",
     "stadium": 7,
     "channels": [

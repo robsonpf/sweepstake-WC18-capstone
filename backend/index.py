@@ -2,7 +2,8 @@ import json
 import os
 import jwt
 import time
-from db.db import find_all_users, insert_user, get_user_by_username, find_round16, find_round8, find_round4, find_group_matches_by_date, find_all_rewards, find_all_scoring, find_all_stadiums, find_all_teams, place_user_bet
+import traceback
+from db.db import find_all_users, insert_user, get_user_by_username, set_match_result, find_round16, find_round8, find_round4, find_group_matches_by_date, find_all_rewards, find_all_scoring, find_all_stadiums, find_all_teams, place_user_bet
 from pprint import pprint
 from flask import Flask, jsonify, request
 from model.user import User, UserSchema
@@ -17,13 +18,13 @@ data_file = os.path.join(working_dir, 'data.json')
 headers = {'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin': '*'}
 not_found_resp = {"message": "resource not found"}
 unexpected_resp = {"message": "unexpected error occurred"}
+bad_request_resp = {"message": "bad request, check your input data"}
 groups_matches = 48
 round16_matches = 56
 round8_matches = 60
 round4_matches = 62
 round2_loser = 63
 final = 64
-
 
 with open(data_file) as f:
   data = json.load(f)
@@ -67,12 +68,53 @@ def place_bet():
 def get_matches():
   try:
     return find_all_stadiums(), 200, headers
+  except Exception as e:
+    print "Exception e: ", e
+    return jsonify(unexpected_resp), 500, headers  
+
+@app.route("/match", methods=['POST'])
+def match_result():
+  try:
+    auth_header = request.headers.get('Authorization')
+    enc_token = auth_header.replace("Bearer ", "")
+    print "enc_token: ", enc_token
+    dec_token = jwt.decode(enc_token, ENC_SECRET, algorithm='HS256')
+    userName = dec_token['userName']
+    user = json.loads(get_user_by_username(userName))
+    print "auth user: ", user
+    forbidden_resp = {"status": "forbidden", "message": "User not authorized"}
+    # only admin access is allowed
+    if 'Admin' not in user['roles']:
+      return jsonify(forbidden_resp), 403, headers
+    match = request.get_json()
+    print "match: ", match
+    matchId = match['matchId']
+    print "matchId: ", matchId
+    phase = ''
+    if matchId <= groups_matches:
+      phase = 'groups'
+    elif matchId > groups_matches and matchId <= round16_matches:
+      phase = 'round16'
+    elif matchId > round16_matches and matchId <= round8_matches:
+      phase = 'round8'
+    elif matchId > round8_matches and matchId <= round4_matches:
+      phase = 'round4'
+    elif matchId > round4_matches and matchId <= round2_loser:
+      phase = 'round2loser'
+    elif matchId > round2_loser and matchId <= final:
+      phase = 'final'
+    else:
+      return jsonify(bad_request_resp), 400, headers
+    ret = json.loads(set_match_result(match, phase))
+    if ret['matchId'] != matchId:
+      return bad_request_resp, 400, headers
+    return '', 201, headers
   except KeyError as ke:
     print "Exception ke: ", ke
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers  
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/scoring")
 def get_scoring():
@@ -111,9 +153,10 @@ def get_users():
 def authenticate():
   try:
     creds = request.get_json()
-    print "creds: " + str(creds)
     user = json.loads(get_user_by_username(creds['userName']))
     resp = {"status": "unauthorized", "message": "Authentication failed, username/password incorrect"}
+    if user == None:
+      return jsonify(resp), 401, headers
     if user['password'] == creds['password']:
       payload = {"firstName": user['firstName'], "lastName": user['lastName'], "phone": user['phone'], "userName": user['userName'], "iss": "https://swpstkapp.org", "iat": int(time.time()), "exp": int(time.time() + 60*60*60) }
       encoded_jwt = jwt.encode(payload, ENC_SECRET, algorithm='HS256')
@@ -121,11 +164,9 @@ def authenticate():
       return jsonify(resp), 200, headers
     else:
       return jsonify(resp), 401, headers
-  except KeyError as ke:
-    print "Exception ke: ", ke
-    return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
+    # traceback.print_exc()
     return jsonify(unexpected_resp), 500, headers    
 
 
