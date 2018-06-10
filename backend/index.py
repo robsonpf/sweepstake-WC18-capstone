@@ -70,7 +70,43 @@ def get_matches():
     return find_all_stadiums(), 200, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers  
+    return jsonify(unexpected_resp), 500, headers
+
+@app.route("/leaderboard")
+def leaderboard():
+  group_matches = json.loads(find_group_matches_by_date())
+  round16_matches = json.loads(find_round16())
+  round8_matches = json.loads(find_round8())
+  round4_matches = json.loads(find_round4())
+  users = json.loads(find_all_users())
+  matches = group_matches + round16_matches + round8_matches + round4_matches
+  print "users: ", users
+  leaders = []
+  for e in users:
+    if 'Admin' in e['roles']:
+      users.remove(e)
+  for user in users:
+    print "------------------------------------------------------------"
+    print "Calculating results for user: ", user['userName']
+    user['points'] = 0
+    bets = user['bets']
+    for bet in bets:
+      match = get_match_by_id(bet['matchId'], matches)
+      if match['finished'] == True:
+        print "Match ID: ", match['matchId']
+        if bet['winnerTeam'] == match['winner']:
+          print "Correct winner: +1 point"
+          user['points'] = user['points'] + 1
+        if bet['finalResult'] == match['finalResult']:
+          print "Correct result: +5 points"
+          user['points'] = user['points'] + 5
+    leaders.append({"userName": user['userName'], "firstName": user['firstName'], "lastName": user['lastName'], "points": user['points']})
+  return jsonify(leaders), 200, headers
+
+def get_match_by_id(matchId, matches):
+  for match in matches:
+    if match['matchId'] == matchId:
+      return match
 
 @app.route("/match", methods=['POST'])
 def match_result():
