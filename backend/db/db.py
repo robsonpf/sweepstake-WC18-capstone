@@ -15,7 +15,6 @@ def insert_user(user):
   return dumps(db['users'].insert(user))
 
 def place_user_bet(user):
-  # return dumps(db['users'].update({user['_id']} , {"$set": user}))
   uid = user['_id']['$oid']
   print "_id: ", uid
   print "user: ", dumps(db['users'].find({"_id": ObjectId(uid)}))

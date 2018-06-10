@@ -2,8 +2,7 @@ from marshmallow import Schema, fields
 from .bet import Bet, BetSchema
 
 class User():
-    def __init__(self, userId, firstName, lastName, roles, userName, password, phone, points, active, bets):
-        self.userId = userId
+    def __init__(self, firstName, lastName, roles, userName, password, phone, points, active, bets):
         self.firstName = firstName
         self.lastName = lastName
         self.roles = roles
@@ -18,7 +17,6 @@ class User():
         return '<User(id={self.userId!r})>'.format(self=self)
 
 class UserSchema(Schema):
-    userId = fields.Int(required=True)
     firstName = fields.Str(required=True)
     lastName = fields.Str(required=True)
     roles = fields.List(fields.Str(required=False, allow_none=True))
