@@ -10,10 +10,10 @@ import {
   Alert,
   Input
 } from 'reactstrap';
-// import {
-//   Dimmer,
-//   Loader
-// } from 'semantic-ui-react';
+import {
+  Dimmer,
+  Loader
+} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { userLogin } from '../redux/actions/auth';
@@ -36,11 +36,11 @@ class Login extends Component {
     console.log("this.props ====>",this.props);
     return (
       <Container className="main-wrapper">
-        {/* {this.props.isLoading ? (
+        {this.props.isLoading ? (
           <Dimmer active>
             <Loader>Fetching Data</Loader>
           </Dimmer>
-        ) : null} */}
+        ) : null}
         <TopNav />
         <Row style={{ marginTop: '25vh' }}>
           <Col

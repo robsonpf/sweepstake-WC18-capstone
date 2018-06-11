@@ -49,7 +49,7 @@ export class Signup extends Component {
         isValid: true,
         isFormValid: true
       })
-      this.props.userSignup(firstName, lastName, userName, phone, password, this.props.history)
+      this.props.userSignup(firstName, lastName, userName, phone, password , this.props.history)
       console.log('this.props.userSignup(firstName, lastName, userName, phone, password, this.props.history)', this.props.userSignup(firstName, lastName, userName, phone, password, this.props.history));
     }
   }

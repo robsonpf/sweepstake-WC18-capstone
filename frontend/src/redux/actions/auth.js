@@ -15,31 +15,34 @@ export const FETCH_TOKEN_FAILED = 'FETCH_TOKEN_FAILED';
 
 const BASE_URL = 'http://localhost:5000';
 
-export const userSignup = (firstName, lastName, userName, phone, password, history) => {
+export const userSignup = (firstName, lastName, userName,
+   phone, password, history) => {
   return async (dispatch) => {
     try {
-      // save the token to localstorage, that's how we'll know they are logged in if we leave the page
-      dispatch({ type: USER_SIGNUP_PENDING })
-      // , payload: {user: {"firstName": firstName, "lastName": lastName, "userName": userName, "phone": phone, "password": password}}
-      // console.log("payload on userSignup actions ", payload);
+      dispatch({ type: USER_SIGNUP_PENDING });
       let response = await fetch(`${BASE_URL}/signup`,{
         method: "POST",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({"firstName": firstName, "lastName": lastName, "userName": userName, "phone": phone, "password": password})
-      })
-      let isSignedup = await response.json()
+        body: JSON.stringify({"firstName": firstName,
+          "lastName": lastName, "userName": userName,
+          "phone": phone,  "password": password, "bets": [],
+          "roles": ['User'], "points": null
+
+        })
+      });
+      let isSignedup = await response.json();
       dispatch({
         type: USER_SIGNUP_SUCCESS,
         payload: isSignedup
-      })
+      });
       console.log('history ===>', history);
-      history.push("/login", isSignedup)
+      history.push("/login", isSignedup);
     } catch(err) {
       dispatch({
         type: USER_SIGNUP_FAILED,
         payload: err
-      })
-    }
+      });
+    };
   }
 }
 
@@ -52,22 +55,22 @@ export const userLogin = ({ userName, password }, history) => {
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ userName, password })
       })
-      let userObject = await response.json()
+      let userObject = await response.json();
       console.log("response: " + userObject)
       localStorage.setItem("jwt_payload", userObject.access_token)
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: userObject
       })
-      history.push('/profile')
+      history.push('/profile', userObject)
     } catch(err) {
       dispatch({
         type: USER_LOGIN_FAILED,
         payload: err
-      })
+      });
     }
-  }
-}
+  };
+};
 
 export const fetchToken = () => {
   return async (dispatch) => {
@@ -78,16 +81,16 @@ export const fetchToken = () => {
           type: FETCH_TOKEN_FAILED,
           payload: "Fetch token failed!"
         })
-        localStorage.removeItem("jwt_payload")
-        return null
+        localStorage.removeItem("jwt_payload");
+        return null;
       }
-      const { exp } = decode(token)
+      const { exp } = decode(token);
       if (exp * 1000 < Date.now()) {
         dispatch({
           type: FETCH_TOKEN_FAILED,
           payload: "Token expired!"
         })
-        localStorage.removeItem("jwt_payload")
+        localStorage.removeItem("jwt_payload");
       } else {
         dispatch({
           type: FETCH_TOKEN_SUCCESS,
@@ -98,15 +101,15 @@ export const fetchToken = () => {
       dispatch({
         type: FETCH_TOKEN_FAILED,
         payload: err
-      })
+      });
     }
-  }
-}
+  };
+};
 
 export const userLogout = (history) => {
   return async (dispatch) => {
-    localStorage.removeItem("jwt_payload")
-    dispatch({type: USER_LOGOUT_SUCCESS})
+    localStorage.removeItem("jwt_payload");
+    dispatch({type: USER_LOGOUT_SUCCESS});
     history.push('/login')
-  }
-}
+  };
+};

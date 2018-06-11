@@ -13,13 +13,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { userLogout } from '../redux/actions/auth';
 
-  const navbar = {backgroundColor: '#2475b2'}
+const navbar = {backgroundColor: '#2475b2'}
 
 class TopNav extends Component {
+
   state = {
     isOpen: false
   };
 
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
 
   handleLogout = (e) => {
     e.preventDefault()
@@ -36,10 +42,9 @@ class TopNav extends Component {
           expand="md"
           className="fixed-top"
         >
-          <NavbarToggler />
+          <NavbarBrand href="/">Sweepstake App</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
           <Collapse navbar>
-            {/* <Nav className="ml-auto" navbar>
-            </Nav> */}
             {!this.props.loggedIn ? (
               <Nav className="ml-auto" navbar>
                 <NavItem>
@@ -58,10 +63,13 @@ class TopNav extends Component {
                   <NavLink href="/matches/">Matches</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/components/">Teams</NavLink>
+                  <NavLink href="/teams/">Teams</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/components/">Groups</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/components/">Ranking</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
@@ -85,8 +93,6 @@ const mapStateToProps = (state, props) => {
     token: state.auth,
     loggedIn: state.auth.loggedIn,
     user: state.auth.user
-    // exp: state.token.exp,
-    // iat: state.token.iat,
   }
 }
 

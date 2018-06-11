@@ -57,11 +57,12 @@ def place_bet():
     result = json.loads(place_user_bet(user))
     print "Result: ", result
     if result['userName'] == userName:
-      return '', 201, headers
+      return jsonify(result), 201, headers
     else:
       return jsonify(unexpected_resp), 500, headers
   except Exception as e:
     print "Exception e: ", e
+    traceback.print_exc()
     return jsonify(unexpected_resp), 500, headers
 
 @app.route("/stadiums")
@@ -161,7 +162,7 @@ def get_scoring():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers   
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/rewards")
 def get_rewards():
@@ -172,7 +173,7 @@ def get_rewards():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers      
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/users", methods=['GET'])
 def get_users():
@@ -183,7 +184,7 @@ def get_users():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers    
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/signin", methods=['POST'])
 def authenticate():
@@ -203,7 +204,7 @@ def authenticate():
   except Exception as e:
     print "Exception e: ", e
     # traceback.print_exc()
-    return jsonify(unexpected_resp), 500, headers    
+    return jsonify(unexpected_resp), 500, headers
 
 
 @app.route("/signup", methods=['POST'])
@@ -219,7 +220,7 @@ def create_user():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers  
+    return jsonify(unexpected_resp), 500, headers
 
 @app.route("/tvchannels")
 def get_tv_channels():
@@ -230,8 +231,8 @@ def get_tv_channels():
     return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
-    return jsonify(unexpected_resp), 500, headers  
-  
+    return jsonify(unexpected_resp), 500, headers
+
 
 @app.route("/teams")
 def get_teams():
@@ -243,7 +244,7 @@ def get_teams():
   except Exception as e:
     print "Exception e: ", e
     return jsonify(unexpected_resp), 500, headers
-  
+
 
 @app.route("/groups/matches")
 def get_matches_by_date():

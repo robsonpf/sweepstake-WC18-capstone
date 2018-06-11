@@ -15,7 +15,7 @@ import {
 // if there is, then add the user's info to the initial state
 
 let getInitialState = (payload) => {
-  let jwt_payload = decode(payload)
+  let jwt_payload = decode(payload);
   console.log(jwt_payload);
   let initialState = {
     isLoading: false,
@@ -25,7 +25,7 @@ let getInitialState = (payload) => {
     loggedIn: true
   };
   return initialState;
-}
+};
 
 let initialState = {
   isLoading: false,
@@ -35,7 +35,7 @@ let initialState = {
 };
 
 // export default(state = getInitialState(), action) => {
-export default (state = initialState, action) => {
+export default ( state = initialState, action ) => {
   switch (action.type) {
     case USER_SIGNUP_PENDING:
       return { ...state, isLoading: true };
@@ -50,7 +50,7 @@ export default (state = initialState, action) => {
     case USER_LOGIN_FAILED:
       return { ...state, isLoading: false, showLoginError: true, ...action.payload };
     case USER_LOGOUT_SUCCESS:
-      return state;
+      return {...state, loggedIn: false };
     case FETCH_TOKEN_SUCCESS:
       return { ...state, isLoading: false, loggedIn: true, ...getInitialState(action.payload) };
     case FETCH_TOKEN_FAILED:

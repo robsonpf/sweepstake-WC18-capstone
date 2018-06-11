@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import UserProfile from './components/UserProfile';
-// import CardMatch from './components/CardMatch';
+import Teams from './components/Teams';
 import GroupMatches from './components/GroupMatches';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -16,7 +16,7 @@ export default class App extends Component {
              <Route exact path="/login" component={Login}/>
              <Route exact path="/signup" component={Signup}/>
              <Route exact path="/profile" component={UserProfile}/>
-             {/* <Route exact path="/matches" component={CardMatch}/> */}
+             {/* <Route exact path="/teams" component={Teams}/> */}
              <Route exact path="/matches" component={GroupMatches}/>
            </Switch>
          </div>

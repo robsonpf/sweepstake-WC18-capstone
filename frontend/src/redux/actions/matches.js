@@ -17,12 +17,12 @@ const BASE_URL = 'http://localhost:5000';
 export const matchesByDay = () => {
   return async dispatch => {
     try {
-      dispatch({type: FETCH_MATCHES_PENDING})
+      dispatch({type: FETCH_MATCHES_PENDING});
       let response = await fetch(`${BASE_URL}/groups/matches`,{
         method: "GET",
         headers: {'Content-Type': 'application/json'}
-      })
-      let match = await response.json()
+      });
+      let match = await response.json();
       dispatch({
         type: FETCH_MATCHES_SUCCESS,
         payload: match
@@ -31,10 +31,10 @@ export const matchesByDay = () => {
       dispatch({
         type: FETCH_MATCHES_FAILED,
         payload: err
-      })
+      });
     }
-  }
-}
+  };
+};
 
 export const fetchTeams = () => {
   return async dispatch => {
@@ -43,30 +43,30 @@ export const fetchTeams = () => {
       let response = await fetch(`${BASE_URL}/teams`,{
         method: "GET",
         headers: {'Content-Type': 'application/json'}
-      })
-      let team = await response.json()
+      });
+      let team = await response.json();
       dispatch({
         type: FETCH_TEAMS_SUCCESS,
         payload: team
-      })
+      });
     } catch(err) {
       dispatch({
         type: FETCH_TEAMS_FAILED,
         payload: err
-      })
+      });
     }
-  }
-}
+  };
+};
 
 export const fetchStadiums = () => {
   return async dispatch => {
     try {
-      dispatch({type: FETCH_STADIUMS_PENDING})
+      dispatch({type: FETCH_STADIUMS_PENDING});
       let response = await fetch(`${BASE_URL}/stadiums`,{
         method: "GET",
         headers: {'Content-Type': 'application/json'}
       })
-      let stadium = await response.json()
+      let stadium = await response.json();
       dispatch({
         type: FETCH_STADIUMS_SUCCESS,
         payload: stadium
@@ -75,7 +75,7 @@ export const fetchStadiums = () => {
       dispatch({
         type: FETCH_STADIUMS_FAILED,
         payload: err
-      })
+      });
     }
-  }
-}
+  };
+};
