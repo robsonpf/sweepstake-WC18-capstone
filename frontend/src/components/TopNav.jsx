@@ -63,10 +63,10 @@ class TopNav extends Component {
                   <NavLink href="/matches/">Matches</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/teams/">Teams</NavLink>
+                  <NavLink href="/components/">Teams</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/components/">Groups</NavLink>
+                  <NavLink src="https://www.fifa.com/worldcup/groups">Groups</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/components/">Ranking</NavLink>

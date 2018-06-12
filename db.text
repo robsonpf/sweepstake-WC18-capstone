@@ -1,3 +1,7 @@
+mongo
+use swpstkapp
+db.users.createIndex({"userName":1},{unique:true})
+
 mongoimport --host localhost --db swpstkapp --collection stadiums --type json --file=db/stadiums.json --jsonArray
 mongoimport --host localhost --db swpstkapp --collection scoring --type json --file=db/scoring.json
 mongoimport --host localhost --db swpstkapp --collection rewards --type json --file=db/rewards.json

@@ -11,7 +11,9 @@ let postInitialState = (payload) => {
         showPostError: false,
         message: "",
         // user: jwt_payload,
-        bets: []
+        bets: [],
+        isValid: true,
+        isValidForm: true
     };
     console.log("initialState ", initialState);
 
@@ -33,7 +35,7 @@ export default (state = initialState, { type, payload }) => {
         case POST_BET_SUCCESS:
             return {   ...state, isLoading: false, isValid: true, bets: [ ...payload ] }
         case POST_BET_FAILED:
-            return { ...state, isLoading: true, isValid: false }
+            return { ...state, isLoading: true, isValid: false, matchId: payload}
         default:
             return state
     }

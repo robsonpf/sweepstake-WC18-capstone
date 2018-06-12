@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Button, Card, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText, Container, Row, Col, Alert } from 'reactstrap';
-import { Flag, Dropdown, Form, Image, Dimmer, Loader } from 'semantic-ui-react';
+import {
+  Button, Card, CardHeader,
+  CardFooter, CardBody, CardTitle,
+  CardText, Container, Row, Col, Alert
+ } from 'reactstrap';
+import {
+  Flag, Dropdown, Form,
+  Image, Dimmer, Loader,
+  Label
+} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { matchesByDay, fetchTeams, fetchStadiums } from '../redux/actions/matches';
@@ -31,7 +38,11 @@ class CardMatch extends Component {
     isValidForm: true,
     isValid: true
   }
-// console.log("state ==", state );
+
+  // handleToggleMatchBets = () => {
+  //   this.setState({ : !this.state. })
+  // }
+
   handleBetSubmit = (e) => {
     e.preventDefault()
     console.log("this.props.user", this.props.user);
@@ -60,7 +71,6 @@ class CardMatch extends Component {
   }
 
   render() {
-    console.log("this.state.isValid", this.state.isValid);
     let {
       matchday,
       group,
@@ -73,13 +83,10 @@ class CardMatch extends Component {
       type
     } = this.props.match;
 
-    console.log("this.props.homeTeam.id ", this.props.homeTeam.id);
-    console.log("this.props.awayTeam.id ", this.props.awayTeam.id);
-
     const options1 = [
     { key: this.props.homeTeam.name, value: this.props.homeTeam.id, text: this.props.homeTeam.name},
     { key: this.props.awayTeam.name, value: this.props.awayTeam.id, text: this.props.awayTeam.name},
-    { key: 0, value: 0, text: "The game over tie"}
+    { key: 0, value: 0, text: "Tied match"}
     ];
 
     return (
@@ -98,19 +105,27 @@ class CardMatch extends Component {
                 </Moment>
               </Row>
               <Row>
-                <Col>
-                  <CardText><Moment fromNow>{date}</Moment></CardText>
-                </Col>
-                <Col>
-                  <CardText>Group: {group}</CardText>
-                </Col>
-                <Col>
-                  <CardText>{this.props.stadium.name}</CardText>
-                </Col>
-                <Col>
-                  <CardText>{this.props.stadium.city}</CardText>
-                </Col>
+                <CardText>
+                  <Moment fromNow>{date}</Moment>
+                </CardText>
               </Row>
+              <Row>
+                <CardText>Group: {group}</CardText>
+              </Row>
+              <Row>
+                <CardText>{this.props.stadium.name}</CardText>
+              </Row>
+              <Row>
+                <CardText>{this.props.stadium.city}</CardText>
+              </Row>
+              <Label
+                as='a'
+                color='orange'
+                content='Show all users bet'
+                // content={ !this.state.showMap ? 'Show all users bet' : 'Show matches'}
+                ribbon='right'
+                // onClick={ this.handleToggleMap }
+              ></Label>
             </CardHeader>
             <CardBody style={{ backgroundColor:'#D4D8DB' }}>
               <Row style={{  marginTop: '7vh', marginBottom: '7vh'  }}>
@@ -129,7 +144,6 @@ class CardMatch extends Component {
                     </Col>
                     <Col>
                       <Image  size='small' src={this.props.awayTeam.flag}/>
-                      {/* <Flag size='massive' name={this.props.awayTeam.iso2} /> */}
                     </Col>
                     <Col>
                       <CardTitle style={{ fontSize:30 }}>
@@ -141,8 +155,7 @@ class CardMatch extends Component {
               </Row>
             </CardBody>
             <CardFooter>
-
-              <Form onSubmit={this.handleBetSubmit}>
+              <Form>
                 <Form.Group widths='equal'>
                   <Form.Select fluid label='Enter number of goals score from:'
                     options={options2} placeholder={this.props.homeTeam.name}
@@ -151,19 +164,14 @@ class CardMatch extends Component {
                     options={options2} placeholder={this.props.awayTeam.name}
                     onChange={e => this.setState({ awayTeamGoals: e.target.textContent })}/>
                   <Form.Select fluid label='Winner' options={options1}
-                    placeholder='Choose a winner or tied game'
+                    placeholder='Choose a winner or a tied match'
                     onChange={e => this.setState({ winner: e.target.textContent })}/>
                 </Form.Group>
-                {!this.state.isValid ? (
+                { !this.props.isValid ? (
                   <Alert color="danger">Bet already made for this match!</Alert>
                 ) : null }
-                <Form.Button>Make your Bet</Form.Button>
+                <Form.Button onClick={this.handleBetSubmit.bind(this)}>Make your Bet</Form.Button>
               </Form>
-              {/* <Dropdown placeholder='Pick winner team' fluid multiple selection options= { text: {this.props.homeTeam.name},
-              text: {this.props.awayTeam.name} } /> */}
-              {/* <Button  name='dropdown' >
-                Make your bet
-              </Button> */}
             </CardFooter>
           </Card>
         </Container>
@@ -173,13 +181,12 @@ class CardMatch extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  // console.log("props.match  ==>", props.match.stadium);
-  // console.log("state.matches  ==>", state.matches.allTeams);
   return {
     user: state.users.allUsers.find(user => user.userName === state.auth.user.userName) || {},
     homeTeam: state.matches.allTeams.find(team => props.match.homeTeam === team.id) || {},
     awayTeam: state.matches.allTeams.find(team => props.match.awayTeam === team.id) || {},
-    stadium: state.matches.allStadiums.find(stadium => props.match.stadium === stadium.id) || {}
+    stadium: state.matches.allStadiums.find(stadium => props.match.stadium === stadium.id) || {},
+    isValid: ( state.bets.matchId === props.match.matchId ) ? state.bets.isValid : true ,
   }
 };
 

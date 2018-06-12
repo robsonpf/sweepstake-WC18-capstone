@@ -211,13 +211,14 @@ def authenticate():
 def create_user():
   try:
     user = request.get_json()
+    user['roles'] = ["User"]
+    user['points'] = 0
+    user['active'] = True
+    user['bets'] = []
     exist_user = json.loads(get_user_by_username(user['userName']))
     if exist_user != None:
       return jsonify({"status": "error", "message": "Username already registered"}), 400, headers
     return insert_user(UserSchema().load(request.get_json())), 201, headers
-  except KeyError as ke:
-    print "Exception ke: ", ke
-    return jsonify(not_found_resp), 404, headers
   except Exception as e:
     print "Exception e: ", e
     return jsonify(unexpected_resp), 500, headers

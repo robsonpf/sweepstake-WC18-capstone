@@ -31,7 +31,7 @@ export const postBet = ({ finalResult, winnerTeam, matchId }) => {
       } else if (response.status === 400) {
         dispatch({
           type: POST_BET_FAILED,
-          payload: bet
+          payload: matchId
         });
       }
     } catch(err) {
