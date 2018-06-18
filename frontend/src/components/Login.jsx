@@ -28,7 +28,6 @@ class Login extends Component {
 
   getLogin = e => {
     e.preventDefault()
-    console.log("state", this.state, "props", this.props);
     this.props.userLogin(this.state, this.props.history)
   }
 

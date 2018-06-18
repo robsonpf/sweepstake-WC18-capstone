@@ -43,20 +43,15 @@ export class Signup extends Component {
       })
     } else if (firstName && lastName && userName && phone && password) {
       let newUser = { firstName, lastName, userName, phone, password }
-      console.log('newUser =>', newUser);
-      console.log("this.props.history =>", this.props.history);
       this.setState({
         isValid: true,
         isFormValid: true
       })
       this.props.userSignup(firstName, lastName, userName, phone, password , this.props.history)
-      console.log('this.props.userSignup(firstName, lastName, userName, phone, password, this.props.history)', this.props.userSignup(firstName, lastName, userName, phone, password, this.props.history));
     }
   }
   render() {
     return (
-      // <div style={divStyle}>
-
         <Container className="main-wrapper">
           <TopNav />
           <Row style={{ marginTop: '30vh', marginBottom: '10vh' }}>
@@ -169,15 +164,9 @@ export class Signup extends Component {
             </Col>
           </Row>
         </Container>
-      // </div>
     )
   }
 }
-
-// const divStyle = {
-//   background: "url('http://media.contentapi.ea.com/content/www-easports/en_US/fifa/news/2018/fifa-18-world-cup-update-game-modes/_jcr_content/imageShare.img.jpg')"
-// }
-
 
 const mapStateToProps = (state, props) => {
   return {

@@ -17,52 +17,54 @@ class UserProfile extends Component {
       console.log('up props', this.props);
       console.log('up matches', this.props.matches);
   return (
-    <div>
-      <TopNav history={this.props.history}/>
-      <Container>
-        <Row>
-          <Col style={{ marginTop: '20vh', marginBottom: '10vh' }} sm={{ size: 6, offset: 3 }}>
-            <h1 className="text-center">{this.props.user.firstName} Profile Page</h1>
-          </Col>
-        </Row>
-        <Row style={{marginTop: 20}}>
-          <Col>
-            <Table celled striped>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell colSpan='6'>{this.props.user.firstName} Table Score</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>Matches</Table.Cell>
-                  <Table.Cell>
-                    Score
-                  </Table.Cell>
-                  <Table.Cell>
-                    Winner Team Bet
-                  </Table.Cell>
-                  <Table.Cell>
-                    Score Bet
-                  </Table.Cell>
-                  <Table.Cell>
-                    Match Points
-                  </Table.Cell>
-                  <Table.Cell>
-                    Total Points
-                  </Table.Cell>
-                </Table.Row>
-                <UserTableList matches={this.props.matches}/>
-              </Table.Body>
-            </Table>
-          </Col>
-        </Row>
-
-      </Container>
-    </div>
-  )
-}
-}
+      <div>
+        <TopNav history={this.props.history}/>
+        <Container>
+          <Row>
+            <Col style={{ marginTop: '20vh', marginBottom: '10vh' }} sm={{ size: 6, offset: 3 }}>
+              <h1 className="text-center">{this.props.user.firstName} Profile Page</h1>
+            </Col>
+          </Row>
+          <Row style={{marginTop: 20}}>
+            <Col>
+              <Table celled striped>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell colSpan='7'>{this.props.user.firstName}'s Table Score</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>Matches</Table.Cell>
+                    <Table.Cell>
+                      Final result guesses
+                    </Table.Cell>
+                    <Table.Cell>
+                      Winner Team guesses
+                    </Table.Cell>
+                    <Table.Cell>
+                      Real final result
+                    </Table.Cell>
+                    <Table.Cell>
+                      Real Winner Team
+                    </Table.Cell>
+                    <Table.Cell>
+                      Match Points
+                    </Table.Cell>
+                    <Table.Cell>
+                      Total Points
+                    </Table.Cell>
+                  </Table.Row>
+                  <UserTableList matches={this.props.matches}/>
+                </Table.Body>
+              </Table>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  };
+};
 
 const mapStateToProps = (state, props) => {
   console.log(state, props);

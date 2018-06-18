@@ -1,6 +1,6 @@
 import React from 'react';
-import MatchTable from './MatchTable';
+import UserTable from './UserTable';
 
-const UserTableList = ({ matches }) => matches.map(match => (<MatchTable key={match.matchId} match={match} />));
+const UserTableList = ({ matches }) => matches.map(match => (<UserTable key={match.matchId} match={match} />));
 
 export default UserTableList;

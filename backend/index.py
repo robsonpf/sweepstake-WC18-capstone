@@ -3,6 +3,7 @@ import os
 import jwt
 import time
 import traceback
+from operator import itemgetter
 from db.db import find_all_users, insert_user, get_user_by_username, set_match_result, find_round16, find_round8, find_round4, find_group_matches_by_date, find_all_rewards, find_all_scoring, find_all_stadiums, find_all_teams, place_user_bet
 from pprint import pprint
 from flask import Flask, jsonify, request
@@ -81,14 +82,20 @@ def leaderboard():
   round4_matches = json.loads(find_round4())
   users = json.loads(find_all_users())
   matches = group_matches + round16_matches + round8_matches + round4_matches
-  print "users: ", users
   leaders = []
+
   for e in users:
-    if 'Admin' in e['roles']:
-      users.remove(e)
+      try:
+          e['userName']
+          e['bets']
+          if 'Admin' in e['roles']:
+            users.remove(e)
+      except KeyError as ke:
+          print "key error in user: ", e
+          users.remove(e)
   for user in users:
     print "------------------------------------------------------------"
-    print "Calculating results for user: ", user['userName']
+    print "Calculating results for user: ", user
     user['points'] = 0
     bets = user['bets']
     for bet in bets:
@@ -102,7 +109,8 @@ def leaderboard():
           print "Correct result: +5 points"
           user['points'] = user['points'] + 5
     leaders.append({"userName": user['userName'], "firstName": user['firstName'], "lastName": user['lastName'], "points": user['points']})
-  return jsonify(leaders), 200, headers
+    sortedLeaders = sorted(leaders, key=itemgetter('points'), reverse=True)
+  return jsonify(sortedLeaders), 200, headers
 
 def get_match_by_id(matchId, matches):
   for match in matches:

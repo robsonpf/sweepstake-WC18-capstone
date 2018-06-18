@@ -42,9 +42,9 @@ class TopNav extends Component {
           expand="md"
           className="fixed-top"
         >
-          <NavbarBrand href="/">Sweepstake App</NavbarBrand>
+          <NavbarBrand href="/matches">SwpstkCup</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse navbar>
+          <Collapse isOpen={this.state.isOpen} navbar>
             {!this.props.loggedIn ? (
               <Nav className="ml-auto" navbar>
                 <NavItem>
@@ -63,10 +63,10 @@ class TopNav extends Component {
                   <NavLink href="/matches/">Matches</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/components/">Teams</NavLink>
+                  <NavLink href='https://www.fifa.com/worldcup/teams/'>Teams</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink src="https://www.fifa.com/worldcup/groups">Groups</NavLink>
+                  <NavLink href='https://www.fifa.com/worldcup/groups/'>Groups</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/components/">Ranking</NavLink>

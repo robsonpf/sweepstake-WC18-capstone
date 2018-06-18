@@ -15,8 +15,7 @@ export const FETCH_TOKEN_FAILED = 'FETCH_TOKEN_FAILED';
 
 const BASE_URL = 'http://localhost:5000';
 
-export const userSignup = (firstName, lastName, userName,
-   phone, password, history) => {
+export const userSignup = (firstName, lastName, userName, phone, password, history) => {
   return async (dispatch) => {
     try {
       dispatch({ type: USER_SIGNUP_PENDING });
@@ -106,7 +105,8 @@ export const fetchToken = () => {
   };
 };
 
-export const userLogout = (history) => {
+export const userLogout = ( history ) => {
+  console.log("history", history);
   return async (dispatch) => {
     localStorage.removeItem("jwt_payload");
     dispatch({type: USER_LOGOUT_SUCCESS});
